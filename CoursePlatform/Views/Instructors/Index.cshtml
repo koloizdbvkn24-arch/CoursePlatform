@@ -1,0 +1,33 @@
+@model List<CoursePlatform.ViewModels.Instructors.InstructorViewModel>
+
+@{
+    ViewData["Title"] = "Instructors";
+}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Instructors</h1>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            No instructors found.
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var instructor in Model)
+            {
+                <div class="col-md-6 mb-3">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">@instructor.FullName</h5>
+                            <p class="card-text"><strong>Email:</strong> @instructor.Email</p>
+                            <p class="card-text">@instructor.Bio</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
